@@ -8,13 +8,14 @@ a{
 
 .navbar
 {
-  background: rgb(0, 0, 0);
+  background: #490804;
 }
 
-.imagem img
+.nav_3
 {
-
-   
- 
- 
+  background: #D9A05B;
+}
+.nav_3 a
+{
+  color: white;
 }

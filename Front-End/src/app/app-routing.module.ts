@@ -9,6 +9,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MinhaspubliComponent } from './minhaspubli/minhaspubli.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'cadastrar', component: CadastrarComponent},
 
   {path: 'inicio', component: InicioComponent},
+  {path: 'minhapub',component:MinhaspubliComponent},
   {path: 'tema', component: TemaComponent},
 
   {path: 'tema-edit/:id', component: TemaEditComponent},

@@ -1,27 +1,240 @@
-ul.social-network{
-  list-style: none;
-  padding: 0;
+@import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+ 
+
+footer
+{
+    position:relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #490804;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-ul.social-network li{
-  display: inline;
-  margin: 0;
-  padding: 5px;
+footer .containeer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.fa{
-  font-size: 35pt;
-  color: white;
-  padding: 10px;
-}
-.fa-facebook-square:hover{
-  color: #3b5998;
+footer .containeer .sec
+{
+    margin-right: 30px;
 }
 
-.fa-instagram:hover{
-  color: #C13584;
+footer .containeer .sec.aboutus
+{
+    width: 40%;
+}
+footer .containeer .sec.aboutus h2
+{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+footer .containeer .sec.aboutus h2:before
+{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background:  #D9A05B; 
+}
+footer p
+{
+    color: #999
 }
 
-.fa-linkedin-square:hover{
-  color: #0072b1;
+.sci
+{
+    margin-top: 20px;
+    display: flex;
+}
+
+.sci li
+{
+    list-style: none;
+}
+
+.sci li a
+{
+ 
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.sci li a:hover
+{
+    background:#D9A05B; 
+}
+.sci li a .fa
+{
+    color:#fff;
+    font-size:20px;
+}
+
+
+
+.quickLinks
+{
+  
+    position: relative;
+    width: 25%;
+}
+
+
+
+.quickLinks ul li
+{
+ 
+    list-style: none;
+}
+.quickLinks ul li a
+{
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.quickLinks h2
+{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+footer .quickLinks  h2:before
+{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #D9A05B; 
+}
+
+.quickLinks ul li a:hover
+{
+color: #fff;
+}
+
+
+.contact
+{
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+}
+
+.contact h2
+{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+footer .contact  h2:before
+{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #D9A05B;
+
+}
+
+.contact .info
+{
+    position: relative;
+}
+
+.contact .info li
+{
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.contact .info li span:nth-child(1)
+{
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.contact .info li span
+{
+    color: #999;
+}
+
+.contact .info li a
+{
+    color: #999;
+    text-decoration: none;
+}
+.contact .info li a:hover
+{
+    color: #fff;
+}
+
+.copyrightText
+{
+    width: 100%;
+    background: #611410;
+    padding: 8px 100px;
+    text-align: center;
+    color: #999; 
+}
+
+@media(max-width:991px)
+{
+    footer
+    {
+        padding: 40px;
+    }
+    footer .containeer
+    {
+     flex-direction: column;   
+    }
+    footer .containeer .sec
+    {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+    footer .containeer .sec.aboutus,
+    .quickLinks,
+    .contact
+    {
+        width: 100%;
+    }
+    .copyrightText
+    {
+        padding: 8px 40px;
+    }
+
 }

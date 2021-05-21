@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+    <div class="container mb-5 mt-5" id="postagens">
+
+        <nav *ngIf='listaPostagens.length != 0'>
+            <div class="nav-item nav-link active text-secondary font-weight-bold d-flex justify-content-center" id="nav-tab" role="tab">
+                <a  class="nav-item nav-link text-secondary font-weight-bold"
+                    id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+                    aria-controls="nav-minhasPostagens" aria-selected="true">Minhas
+                    Postagens</a>
+            </div>
+        </nav>
+
+        <h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
+            Não existem postagens ainda...
+        </h2>
+
+        <div class="tab-content mt-5" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+              
+                    <div class="card mt-5" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+                        <div class="card-body">
+                            <h5 class="card-title m-0 mb-3 ml-5 mt-2"><small class="text-muted">{{item.tema.descricao}}</small>{{item.titulo}}
+                            <small class="text-muted">
+                                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                              </small></h5>
+                            <img class="card-img-top" src="{{item.foto}}" alt="Imagem de capa do card">
+                            <div class="card-body">
+                              <p class="card-text mt-2">{{item.texto}}</p>
+                              <p class="card-text"></p>
+
+                            <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+                            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+
+   

@@ -17,6 +17,7 @@ export class UserEditComponent implements OnInit {
   confirmarSenha: string
   tipoUsuario: string
 
+  foto = environment.foto
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,

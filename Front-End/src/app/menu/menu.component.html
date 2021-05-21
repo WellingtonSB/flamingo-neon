@@ -3,8 +3,7 @@
 
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <li class="nav-item pl-3">
-        <a class="text-light align-items-center"><img src="https://i.imgur.com/2Ftspaz.png" width="50px"
-            height="50px">Wine's</a>
+        <a class="text-light align-items-center"><img src="https://i.imgur.com/fT8Bvj3.png" width="70px" height="70px"  routerLink='/inicio'></a>
       </li>
     </ul>
   </div>
@@ -17,16 +16,15 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a class="dropdown-item fontMenu" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</a>
       <a class="dropdown-item fontMenu" href="#postagens">Ver Postagens</a>
+      <a class="dropdown-item fontMenu" routerLink='/minhapub'>Minhas publicações</a>
       <a class="dropdown-item fontMenu" [routerLink]="['/user-edit', id]">Perfil</a>
       <a class="dropdown-item fontMenu" (click)='sair()'>Sair</a>
     </div>
   </li>
 </nav>
 
-<div class="imagem">
-  <img class="img-fluid" src="https://www.blogvinhotinto.com.br/wp-content/uploads/2013/08/logoblogdovinhotinto.jpg">
-</div>
-<div class="navbar nav justify-content-center ">
+
+<div class=" nav_3 navbar nav justify-content-center ">
   <ul class="nav justify-content-center">
     <li class="nav-item">
       <a class="nav-link active">ACHADO DA SEMANA</a>
@@ -61,6 +59,11 @@
           <label for="titulo">Título</label>
           <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
             placeholder="Digite o título">
+        </div>
+        <div class="form-group">
+          <label for="foto">Link da foto</label>
+          <input [(ngModel)]='postagem.foto' type="text" class="form-control" id="foto"
+            placeholder="Cole a URL da sua foto">
         </div>
         <div class="form-group">
           <label for="texto">Texto</label>

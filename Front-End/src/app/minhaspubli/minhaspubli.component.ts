@@ -1,20 +1,20 @@
-import { AlertasService } from './../service/alertas.service';
-import { AuthService } from './../service/auth.service';
-import { User } from './../model/User';
-import { Tema } from './../model/Tema';
-import { TemaService } from './../service/tema.service';
-import { PostagemService } from './../service/postagem.service';
-import { Postagem } from './../model/Postagem';
-import { Router } from '@angular/router';
-import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { Postagem } from '../model/Postagem';
+import { Tema } from '../model/Tema';
+import { User } from '../model/User';
+import { AlertasService } from '../service/alertas.service';
+import { AuthService } from '../service/auth.service';
+import { PostagemService } from '../service/postagem.service';
+import { TemaService } from '../service/tema.service';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  selector: 'app-minhaspubli',
+  templateUrl: './minhaspubli.component.html',
+  styleUrls: ['./minhaspubli.component.css']
 })
-export class InicioComponent implements OnInit {
+export class MinhaspubliComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
@@ -48,6 +48,7 @@ export class InicioComponent implements OnInit {
 
     this.getAllTemas()
     this.getAllPostagens()
+    this.findByIdUser()
   }
 
   getAllTemas(){
