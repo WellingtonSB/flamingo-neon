@@ -1,0 +1,151 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://i.imgur.com/uMVIioo.jpg" alt="Primeiro Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/rKMf7wX.jpg" alt="Segundo Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/Ir1Sr4X.jpg" alt="Terceiro Slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+
+
+<div class="container">
+  
+
+  <div class="row d-flex mt-5">
+    <div class="col-md-9 justify-content-center mt-5">
+      <div class="col-12 col-md-8">
+        <div class="container mb-5 mt-5" id="postagens">
+
+          <nav *ngIf='listaPostagens.length != 0'>
+            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab"
+              data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
+              aria-selected="true">Todas as Postagens</a>
+          </nav>
+
+          <h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
+            Não existem postagens ainda...
+          </h2>
+
+          <div class="tab-content mt-5" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+              aria-labelledby="nav-todasPostagens-tab">
+              <div class="card mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
+                <h5 class="card-title m-0 mb-3 ml-5 mt-2">{{item.titulo}}<br><small class="text-muted">
+                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                  </small></h5>
+                <img class="card-img-top" src="https://i.imgur.com/NbUpLYE.jpg" alt="Imagem de capa do card">
+                <div class="card-body">
+                  <p class="card-text mt-2">{{item.texto}}</p>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-muted">
+                      by: {{item.usuario.nome}}
+                    </small></p>
+                </div>
+              </div>
+            </div>
+
+            <!--     
+            <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+              <div class="card-columns">
+                <div class="card text-center" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+                  <div class="card-body">
+                    <h5 class="card-title m-0">{{item.titulo}}</h5>
+                    <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
+                    <p class="card-text mt-3">{{item.texto}}</p>
+                    <p class="card-text"><small class="text-muted">
+                        {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                      </small></p>
+                    <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+                    <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+                  <div class="form-group mb-5">
+                    <input type="text" class="form-control" id="tituloPesquisa"
+                      placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-columns" *ngFor='let tema of listaTemas'>
+                <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
+                  <div class="card-body">
+                    <h5 class="card-title m-0">{{item.titulo}}</h5>
+                    <p class="card-text mt-3">{{item.texto}}</p>
+                    <p class="card-text"><small class="text-muted">
+                        {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                      </small></p>
+                    <p class="card-text"><small class="text-muted">
+                        by: {{item.usuario.nome}}
+                      </small></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- segunda seção -->
+    <div class=" col-md-3">
+      <div class="row">
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" id="titulo" placeholder="Digite um titulo de postagem para pesquisar"
+                [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+            </div>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-center">INFORMAÇÕES SEMANAIS. ASSINE AQUI:</h5>
+              <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o
+                conteúdo do card.</p>
+            </div>
+          </div>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <nav aria-label="Navegação de página exemplo">
+    <ul class="pagination justify-content-center">
+
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Próximo</a>
+      </li>
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
