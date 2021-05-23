@@ -14,6 +14,7 @@ export class PostagemDeleteComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   idPost: number
+  token = localStorage.getItem('token')
 
   constructor(
     private router: Router,
@@ -26,7 +27,7 @@ export class PostagemDeleteComponent implements OnInit {
 
     window.scroll(0,0)
 
-    if(environment.token == ''){
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 

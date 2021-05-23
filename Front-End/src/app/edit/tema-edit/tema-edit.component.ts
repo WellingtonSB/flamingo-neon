@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class TemaEditComponent implements OnInit {
 
   tema: Tema = new Tema()
+  token = localStorage.getItem('token')
 
   constructor(
     private temaService: TemaService,
@@ -22,7 +23,7 @@ export class TemaEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.token == ''){
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 

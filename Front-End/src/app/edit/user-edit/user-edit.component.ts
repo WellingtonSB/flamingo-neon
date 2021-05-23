@@ -16,7 +16,7 @@ export class UserEditComponent implements OnInit {
   idUser: number
   confirmarSenha: string
   tipoUsuario: string
-
+  token = localStorage.getItem('token')
   foto = environment.foto
   constructor(
     private authService: AuthService,
@@ -28,7 +28,7 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    if (environment.token == '') {
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 
@@ -54,7 +54,7 @@ export class UserEditComponent implements OnInit {
         this.user = resp
         this.router.navigate(['/inicio'])
         this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')
-        environment.token = ''
+        this.token= ''
         environment.nome = ''
         environment.foto = ''
         environment.id = 0

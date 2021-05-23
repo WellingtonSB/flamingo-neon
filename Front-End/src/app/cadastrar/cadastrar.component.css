@@ -1,8 +1,7 @@
 #img-bg{
   background-image: url('https://i.imgur.com/NsqnRwo.jpg');
 
-  min-height: 821px;
-
+  min-height: 957px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,6 +10,6 @@
 hr
 {
     background-color: rgba(255, 255, 255, 0.829);  
-    width: 14cm;
+    width: 11cm;
 
 }

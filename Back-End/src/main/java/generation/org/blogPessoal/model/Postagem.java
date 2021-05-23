@@ -24,6 +24,9 @@ public class Postagem {
 	private long id;
 	
 	@NotNull
+	private String foto;
+	
+	@NotNull
 	@Size(min = 5, max = 100)
 	private String titulo;
 	
@@ -88,6 +91,14 @@ public class Postagem {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 	
 	

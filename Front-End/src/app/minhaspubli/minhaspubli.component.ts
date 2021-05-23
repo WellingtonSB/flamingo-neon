@@ -30,7 +30,7 @@ export class MinhaspubliComponent implements OnInit {
 
   key = 'data'
   reverse = true
-
+  token = localStorage.getItem('token')
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -42,7 +42,7 @@ export class MinhaspubliComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
 
-    if(environment.token == ''){
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 

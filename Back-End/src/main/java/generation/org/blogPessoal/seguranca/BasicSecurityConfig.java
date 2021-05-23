@@ -34,14 +34,9 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// liberar edpoints para poderem ser acessados sem a necessidade de um token
 		http.authorizeRequests()
+		.antMatchers("/**").permitAll() 
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
-		.antMatchers("/tema").permitAll()
-		.antMatchers("/tema/{id}").permitAll()
-		.antMatchers("/postagens").permitAll()
-		.antMatchers("/postagens/{id}").permitAll()
-		.antMatchers("/usuarios").permitAll()
-		.antMatchers("/usuarios/{id}").permitAll()
 		// nao deixar acessar os demais endpoints sem estarem com um token
 		.anyRequest().authenticated()
 		// trabalha com uma seguranca basica

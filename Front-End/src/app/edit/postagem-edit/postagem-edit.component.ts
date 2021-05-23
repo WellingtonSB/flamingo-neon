@@ -19,6 +19,7 @@ export class PostagemEditComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  token = localStorage.getItem('token')
 
   constructor(
     private router: Router,
@@ -32,7 +33,7 @@ export class PostagemEditComponent implements OnInit {
 
     window.scroll(0,0)
 
-    if(environment.token == ''){
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 

@@ -14,7 +14,7 @@ export class TemaDeleteComponent implements OnInit {
 
   tema: Tema = new Tema()
   idTema: number
-
+  token = localStorage.getItem('token')
   constructor(
     private temaService: TemaService,
     private router: Router,
@@ -23,7 +23,7 @@ export class TemaDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.token == ''){
+    if (this.token == null) {
       this.router.navigate(['/entrar'])
     }
 

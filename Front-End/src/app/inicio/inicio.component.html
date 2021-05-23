@@ -93,10 +93,7 @@
             <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
               aria-labelledby="nav-todasPostagens-tab">
               <div class="card mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
-                <h5 class="card-title m-0 mb-3 ml-2 mt-2">{{item.titulo}}
-                  <!-- refatorar -->
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <!-- refatorar -->
+                <h5 class="card-title m-0 mb-3 ml-5 mt-2">{{item.titulo}} <br>
                   <small class="text-muted text-right ">
                     {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
                   </small>
@@ -105,7 +102,7 @@
                 <div class="card-body">
                   <p class="card-text mt-2  ml-5">{{item.texto}}</p>
                   <p class="card-text"></p>
-                  <p class="card-text"><small class="text-muted">
+                  <p class="card-text ml-5"><small class="text-muted">
                       Por: {{item.usuario.nome}}
                     </small></p>
                 </div>
